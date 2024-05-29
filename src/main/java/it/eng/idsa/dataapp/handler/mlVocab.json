@@ -1,0 +1,94 @@
+{
+    "@context": {
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "mls": "http://www.w3.org/ns/mls#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "": "http://example.org#"
+    },
+    "@graph": [
+      {
+        "@id": ":run100241",
+        "@type": ["owl:NamedIndividual", "mls:Run"],
+        "mls:executes": { "@id": ":wekaLogistic" },
+        "mls:hasInput": [
+          { "@id": ":credit-a" },
+          { "@id": ":wekaLogisticMSetting29" },
+          { "@id": ":wekaLogisticRSetting29" }
+        ],
+        "mls:hasOutput": [
+          { "@id": ":modelEvaluation100241" },
+          { "@id": ":wekaLogisticModel100241" }
+        ],
+        "mls:realizes": { "@id": ":logisticRegression" },
+        "mls:achieves": { "@id": ":task29" }
+      },
+      {
+        "@id": ":wekaLogistic",
+        "@type": ["owl:NamedIndividual", "mls:Implementation"],
+        "mls:hasHyperParameter": [
+          { "@id": ":wekaLogisticC" },
+          { "@id": ":wekaLogisticDoNotCheckCapabilities" },
+          { "@id": ":wekaLogisticM" },
+          { "@id": ":wekaLogisticOutputDebugInfo" },
+          { "@id": ":wekaLogisticR" }
+        ],
+        "mls:implements": { "@id": ":logisticRegression" }
+      },
+      {
+        "@id": ":weka",
+        "@type": ["mls:Software"],
+        "mls:hasPart": { "@id": ":wekaLogistic" }
+      },
+      {
+        "@id": ":logisticRegression",
+        "@type": ["owl:NamedIndividual", "mls:Algorithm"]
+      },
+      {
+        "@id": ":wekaLogisticC",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameter"]
+      },
+      {
+        "@id": ":wekaLogisticDoNotCheckCapabilities",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameter"]
+      },
+      {
+        "@id": ":wekaLogisticM",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameter"]
+      },
+      {
+        "@id": ":wekaLogisticOutputDebugInfo",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameter"]
+      },
+      {
+        "@id": ":wekaLogisticR",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameter"]
+      },
+      {
+        "@id": ":wekaLogisticMSetting29",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameterSetting"],
+        "mls:specifiedBy": { "@id": ":wekaLogisticM" },
+        "mls:hasValue": "-1"
+      },
+      {
+        "@id": ":wekaLogisticRSetting29",
+        "@type": ["owl:NamedIndividual", "mls:HyperParameterSetting"],
+        "mls:specifiedBy": { "@id": ":wekaLogisticR" },
+        "mls:hasValue": {
+          "@value": "1.0E-8",
+          "@type": "xsd:float"
+        }
+      },
+
+      {
+        "@id": ":credit-a",
+        "@type": ["owl:NamedIndividual", "mls:Dataset"],
+        "mls:hasQuality": [
+          { "@id": ":defaultAccuracy" },
+          { "@id": ":numberOfFeatures" },
+          { "@id": ":numberOfInstances" }
+        ]
+      }
+
+    ]
+  }
